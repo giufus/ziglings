@@ -14,6 +14,9 @@ const std = @import("std");
 // You can find more information at:
 // https://ziglang.org/documentation/master/#Inferred-Error-Sets
 //
+
+const log = std.log;
+
 pub fn main() !void {
     // We get a Writer for Standard Out so we can print() to it.
     const stdout = std.io.getStdOut().writer();
@@ -23,5 +26,6 @@ pub fn main() !void {
     // to be able to pass it up as a return value of main().
     //
     // We just learned of a single statement which can accomplish this.
-    stdout.print("Hello world!\n", .{});
+    log.info("Another way of logging", .{});
+    try stdout.print("Hello world!\n", .{});
 }
